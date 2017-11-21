@@ -9,13 +9,15 @@
 
 ## 关于bluesky
 
-        我们发起了bluesky项目，该项目基于spring boot的Web应用.任何人多可以修改并提交自己的构建模块，或者构建公用项目及其他。
-    spring boot可轻松创建基于spring平台的独立的，产品级别的运行应用。spring作为企业级的开发平台，包含模块众多，我们的业务应用
-    构建由各个擅长各自领域的攻城师共同开发完善，属于集体开发应用。
+        我们发起了bluesky项目，该项目基于spring boot的Web应用.任何人多可以修改并提交自己的构建模块，
+    或者构建公用项目及其他。spring boot可轻松创建基于spring平台的独立的，产品级别的运行应用。spring
+    作为企业级的开发平台，包含模块众多，我们的业务应用构建由各个擅长各自领域的攻城师共同开发完善，
+    属于集体开发应用。
 
 ## 系统要求
   
-        Spring Boot 2.0.0.BUILD-SNAPSHOT 要求JDK1.8 及 srping框架5.0.2.BUILD-SNAPSHOT或者以上。构建工具版本要求Maven 3.2+ and Gradle 4.
+        Spring Boot 2.0.0.BUILD-SNAPSHOT 要求JDK1.8 及 srping框架5.0.2.BUILD-SNAPSHOT或者以上。
+    构建工具版本要求Maven 3.2+ and Gradle 4.
         
 ## 快速启动应用
 

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title> 500 </title>
+    <link rel="stylesheet" type="text/css" th:href="@{~/css/semantic.min.css}"/>
+</head>
+<body>
+
+
+<div class="ui piled segment" style="margin:10% 10%;">
+    <h4 class="ui header"><img th:src="@{~/image/error.png}"></img>500 - 服务端错误!</h4>
+    <p>There seems to be a problem with the page you requested
+        (<span th:text="${path}"></span>).</p>
+    <p th:text="${'Details: ' + message}"></p>
+</div>
+
+</body>
+</html>

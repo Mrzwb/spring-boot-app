@@ -11,29 +11,28 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.0.BUILD-SNAPSHOT</version>
+    <version>2.0.5.RELEASE</version>
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <querydsl.version>4.1.1</querydsl.version>
-    <guava.version>18.0</guava.version>
-    <lombok.version>1.16.10</lombok.version>
-    <mybatis.version>1.2.1</mybatis.version>
+    <querydsl.version>4.2.1</querydsl.version>
+    <guava.version>27.0.1-jre</guava.version>
+    <lombok.version>1.18.8</lombok.version>
+    <mybatis.version>2.1.0</mybatis.version>
   </properties>
 
   <dependencies>
-
-    <!-- Spring Boot -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+      <!-- Spring Boot -->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
 
       <!-- Spring thymeleaf -->
       <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
       </dependency>
 
       <!-- Spring security -->
@@ -63,61 +62,50 @@
           <artifactId>spring-boot-devtools</artifactId>
       </dependency>
 
-    <!--Spring JDBC-->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-jdbc</artifactId>
-    </dependency>
+      <!--Spring JDBC-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-jdbc</artifactId>
+      </dependency>
 
-    <!--Spring JPA-->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
+      <!--Spring JPA-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+      </dependency>
 
-    <!-- Spring Data -->
-    <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-commons</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-mongodb</artifactId>
-    </dependency>
+      <!-- Spring Data -->
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-commons</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-mongodb</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.dataformat</groupId>
+          <artifactId>jackson-dataformat-xml</artifactId>
+      </dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.dataformat</groupId>
-      <artifactId>jackson-dataformat-xml</artifactId>
-    </dependency>
+      <!-- Data Source -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <scope>runtime</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.mongodb</groupId>
+          <artifactId>mongo-java-driver</artifactId>
+          <version>3.11.0-rc0</version>
+      </dependency>
 
-    <!-- Data Source -->
-    <dependency>
-      <groupId>com.mchange</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.9.5.2</version>
-    </dependency>
-    <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>ojdbc6</artifactId>
-        <version>12.1.0.1-atlassian-hosted</version>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-    </dependency>
-   <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongo-java-driver</artifactId>
-      <version>3.6.0-beta2</version>
-    </dependency>
-
-    <!--test -->
+      <!--test -->
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-test</artifactId>
           <scope>test</scope>
       </dependency>
-
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-actuator</artifactId>
@@ -146,6 +134,7 @@
           <groupId>org.projectlombok</groupId>
           <artifactId>lombok</artifactId>
           <version>${lombok.version}</version>
+          <scope>provided</scope>
       </dependency>
 
       <!-- mybatis-->
@@ -153,6 +142,14 @@
           <groupId>org.mybatis.spring.boot</groupId>
           <artifactId>mybatis-spring-boot-starter</artifactId>
           <version>${mybatis.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>4.0.1</version>
+          <scope>provided</scope>
       </dependency>
 
   </dependencies>
@@ -181,7 +178,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
-
         <!--该插件可以生成querysdl需要的查询对象，执行mvn compile即可
         <plugin>
             <groupId>com.mysema.maven</groupId>
@@ -206,26 +202,75 @@
   <!--repositories-->
   <repositories>
     <repository>
-      <id>spring-snapshots</id>
-      <url>http://repo.spring.io/snapshot</url>
+      <id>central</id>
+      <url>http://repo1.maven.org/maven2</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
     </repository>
     <repository>
-      <id>spring-milestones</id>
-      <url>http://repo.spring.io/milestone</url>
+      <id>edas-oss-central</id>
+      <url>http://edas-public.oss-cn-hangzhou.aliyuncs.com/repository</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
     </repository>
   </repositories>
   <pluginRepositories>
-    <pluginRepository>
-      <id>spring-snapshots</id>
-      <url>http://repo.spring.io/snapshot</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>spring-milestones</id>
-      <url>http://repo.spring.io/milestone</url>
-    </pluginRepository>
+      <pluginRepository>
+          <id>central</id>
+          <url>http://repo1.maven.org/maven2</url>
+          <releases>
+              <enabled>true</enabled>
+          </releases>
+          <snapshots>
+              <enabled>true</enabled>
+          </snapshots>
+      </pluginRepository>
+
+      <pluginRepository>
+          <id>edas-oss-plugin-central</id>
+          <url>http://edas-public.oss-cn-hangzhou.aliyuncs.com/repository</url>
+          <snapshots>
+              <enabled>true</enabled>
+          </snapshots>
+          <releases>
+              <enabled>true</enabled>
+          </releases>
+      </pluginRepository>
   </pluginRepositories>
+
+  <profiles>
+    <profile>
+        <id>dev</id>
+        <properties>
+            <profiles.active>dev</profiles.active>
+            <maven.test.skip>true</maven.test.skip>
+        </properties>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+    </profile>
+    <profile>
+        <id>test</id>
+        <properties>
+            <profiles.active>test</profiles.active>
+            <maven.test.skip>true</maven.test.skip>
+        </properties>
+    </profile>
+    <profile>
+        <id>prod</id>
+        <properties>
+            <profiles.active>prod</profiles.active>
+            <maven.test.skip>true</maven.test.skip>
+        </properties>
+    </profile>
+  </profiles>
 
 </project>

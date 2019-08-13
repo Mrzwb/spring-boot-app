@@ -1,6 +1,5 @@
 package com.chinauicom.bluesky.config.filters;
 
-import com.chinauicom.bluesky.controller.MainController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
